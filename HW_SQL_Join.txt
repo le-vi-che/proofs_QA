@@ -16,7 +16,7 @@ select E.employee_name, salary.monthly_salary
 from employee_salary
 right join employees E on id_employee = E.id 
 join salary on id_salary = salary.id
-where employee_name = null
+where employee_name is null
 
  --4. Вывести все зарплатные позиции  меньше 2000 но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
  select employee_name, monthly_salary

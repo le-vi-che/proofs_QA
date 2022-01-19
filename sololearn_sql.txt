@@ -1,0 +1,48 @@
+solo learn
+A local bakery creates unique cake sets. Each cake set contains three different cakes.
+Тoday a customer want a cake set that has minimal calories.
+Write a query to sort the cakes by calorie count and select the first 3 cakes from the list to offer the customer.
+
+select name, calories from cakes
+order by calories limit 3
+
+You want to rent an apartment and have the following table named Apartments:
+Write a query to output the apartments whose prices are greater than the average
+and are also not rented, sorted by the 'Price' column.
+
+select * from Apartments
+where price > (select avg (price) from Apartments)
+and status = 'Not rented'
+order by price
+
+Let's help the pilots find out details about their flights.
+You are given the following tables named pilots and flights:
+Write a query to output the flight ID, full name of the pilot who is responsible for the flight, 
+the country where the flight will land, and the duration of the flight (flight_id, fullname, landing_country, duration).
+
+select Pilots.flight_id, Pilots.fullname, flights.landing_country, flights.duration
+from Pilots
+inner join flights on Pilots.flight_id = flights.id
+order by flights.ID
+
+You manage a delivery agency
+You want to see the weekly delivery report. 
+Write a query to output all customers and their orders in one table (fullname - age - address - amount).
+
+select customers.fullname, customers.age, customers.address, orders.amount
+from orders
+RIGHT JOIN customers on orders.customerid = customers.id
+
+You manage a zoo. Each animal in the zoo comes from a different country. Here are the tables you have:
+1) A new animal has come in, with the following details:
+name - "Slim", type - "Giraffe", country_id - 1
+Add him to the Animals table.
+2) You want to make a complete list of the animals for the zoo’s visitors. 
+Write a query to output a new table with each animal's name, type and country fields, sorted by countries.
+
+INSERT INTO Animals 
+VALUES ('Slim', 'Giraffe', 1);
+SELECT Animals.name, Animals.type, Countries.country 
+FROM Animals
+INNER JOIN Countries  ON Animals.country_id = Countries.id
+ORDER BY Countries.country

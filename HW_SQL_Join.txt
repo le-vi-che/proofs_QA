@@ -40,7 +40,7 @@ where id_salary is null;
  select employee_name, role_name from employees 
  join roles_employees on employees.id = roles_employees.id_employee 
  join roles on roles.id = roles_employees.roles_id
- where role_name like '%Java%';
+ where role_name like '%Java%Developer%';
  
  --8. Вывести имена и должность только Python разработчиков.
  select employee_name, role_name from employees 
@@ -136,7 +136,7 @@ where id_salary is null;
  join salary on salary.id = employee_salary.id_salary
  join roles_employees on employees.id = roles_employees.id_employee 
  join roles on roles.id = roles_employees.roles_id
- where role_name like '%Junior%' and role_name like '%QA%'
+ where role_name like '%Junior%QA%'
   
  --21. Вывести среднюю зарплату всех Junior специалисто
  select avg(monthly_salary) from employees 
@@ -180,7 +180,7 @@ where id_salary is null;
  select count(role_name) from employees 
  join roles_employees on employees.id = roles_employees.id_employee 
  join roles on roles.id = roles_employees.roles_id
- where role_name like '%Manual%';
+ where role_name like '%Middle%';
  
  --27. Вывести количество разработчиков
  select count(role_name) from employees 
